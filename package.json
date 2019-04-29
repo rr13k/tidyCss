@@ -1,0 +1,72 @@
+{
+	"name": "vuecsstidy",
+	"displayName": "vue css tidy",
+	"description": "Invalid Css cleanup tool",
+	"keywords": ["vue", "tidy", "css"],
+	"publisher":"renran",
+	"version": "0.0.4",
+	"icon": "images/icon.png",
+	"engines": {
+		"vscode": "^1.33.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:tidyCss.main",
+		"onLanguage:json"
+	],
+	"main": "./src/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "tidyCss.main",
+				"title": "tidy css"
+			}
+		],
+		"keybindings":[
+			{ 
+			"key": "ctrl+shift+t",
+			"mac": "cmd+shift+f10",
+			"command": "tidyCss.main",
+			"when": "editorFocus && resourceLangId == html"
+			},
+			{ 
+				"key": "ctrl+shift+t",
+				"mac": "cmd+shift+f10",
+				"command": "tidyCss.main",
+				"when": "editorFocus && resourceLangId == vue"
+			}
+		],
+		"menus": {
+            "editor/context": [
+                {
+					"when": "editorFocus && resourceLangId == html",
+                    "command": "tidyCss.main",
+                    "group": "navigation"
+				},
+				{
+					"when": "editorFocus && resourceLangId == vue",
+                    "command": "tidyCss.main",
+                    "group": "navigation"
+                }
+            ]
+        }
+	},
+	
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/zhouyuantest/tidyCss"
+	},
+	"devDependencies": {
+		"typescript": "^3.3.1",
+		"vscode": "^1.1.28",
+		"eslint": "^5.13.0",
+		"@types/node": "^10.12.21",
+		"@types/mocha": "^2.2.42"
+	}
+}
