@@ -7,7 +7,6 @@ const vscode = require('vscode');
  */
 function activate(context) {
 	try {
-		require("./hover")(context);
 		let tidy = require("./tidy");
 		let disposable = vscode.commands.registerCommand('tidyCss.main', function () {
 		var textBody =  vscode.window.activeTextEditor.document.getText(new vscode.Range(new vscode.Position(0, 0), new vscode.Position( vscode.window.activeTextEditor.document.lineCount + 1, 0)));

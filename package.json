@@ -4,7 +4,7 @@
 	"description": "Invalid Css cleanup tool",
 	"keywords": ["vue", "tidy", "css"],
 	"publisher":"renran",
-	"version": "0.0.4",
+	"version": "0.0.8",
 	"icon": "images/icon.png",
 	"engines": {
 		"vscode": "^1.33.0"

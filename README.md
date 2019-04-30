@@ -24,18 +24,26 @@ none!
 welcome release your the problem, I'll try my best to solve it.
 
 ## Release Notes
-
+Removing script interference from scripts!
+add id of css support！
 add right-click menu and shortcuts, you can use [ctrl + shift + t] tidy your css。   
 
-### 1.0.0
+### 0.0.1
 
-Initial release of ...
-
-### 1.0.1
-
+base method
 Add right-click menu
 shortcuts
 
+### 0.0.6
+add id of css support！
+
+### 0.07
+Removing script interference from scripts!
+
+### 0.08 
+add of empty css The support of!
+example:
+    .nihao{}
 
 -----------------------------------------------------------------------------------------------------------
 

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3 class="">11</h3>
+    <h5 id="id2"></h5>
+    <h6 id="nihao"></h6>
+
+</body>
+<style>
+._s1{
+    color: red;
+}
+
+ #nihao{
+
+} 
+
+
+/* .asdsad{
+    
+} */
+</style>
+
+<script>
+    function ExtractIdAll(_html){
+	let re = /(id=")([a-z|A-Z|0-9|\s|_]+)"/gms
+	return _html.match(re)
+}
+
+let _html2 = `<body>
+    <h3 class="_s1"  id="_s132">11</h3>
+    <h5 id="id2"></h5>
+
+</body>`
+
+nn = ExtractIdAll(_html2)
+console.dir(nn.toString())
+_str ="id2"
+let re = new RegExp(`(["]+)${_str}(["]+)`,"smg")
+console.dir(nn)
+
+console.dir(re.test(`id="_s132",id="id2"`))
+
+
+
+var _html  = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body class="mybody">
+    <h3 class=""></h3>
+    <div class="nrease"></div>
+    <div class=""></div>
+</body>
+
+
+nn = {}
+nn.sdsd = {
+    "sadsa":"asdas"
+} 
+
+<style>
+/* .sadas{
+    color: red;
+} */ 
+</style>
+<style>
+/*.zhushi1{
+    color: #000;
+}*/
+</style>
+
+<style  scoped> .sadas2{
+        color: #000;
+    }
+
+    .nrease{
+        margin: 0 0;
+    }
+    </style>
+
+<style>
+    /* .sadas3{
+        color: #000;
+    } */ 
+
+    /* .kasd .dkas{
+        margin:123;
+    } */
+
+     #nihao{
+        margin:123;
+    } 
+
+    /* ._nihao{
+        margin:77888;
+    } */
+
+    /*.keli > .sdsd{
+        color: #000;
+    } */
+    </style>
+</html>`
+
+/*
+*  test1  解析html为css块
+*
+*/
+// let styleRe = /(?<=style([^>]*)>)([^<]*)(?=<\/style)/gms
+// let cssSource =_html.match(styleRe)
+// console.dir(cssSource)
+
+/*
+*  test2  解析css块
+*
+*/
+_html2 =  `"
+    /* .sadas3{
+        color: #000;
+    } */ 
+
+    .kasd .dkas{
+        margin:123;
+    }
+
+    #nihao2{
+        margin:123;
+    }
+
+    ._nihao{
+        margin:77888;
+    }
+
+    /*.keli > .sdsd{
+        color: #000;
+    } */
+    "`
+data = _html2.match(/([\.#]?)[^\{\"=]+\{[^\}]+\}/gms)
+console.dir(data)
+
+// function mmm(_list,_str){
+//     class_re = /.([A-Za-z0-9]+)([\s]*){(.+?)}/mgs
+//     if(class_re.test(_str)){ //判断是否为合法的class
+//             annotation = false
+//             if(_str.indexOf("/*") > -1)annotation = true;
+//             source = _str.match(/\.[^\{\"=]+\{[^\}]+\}/gms)[0]
+//             obj = {
+//                 "source":source,
+//                 "annotation":annotation
+//             }
+//             _list.push(obj)
+//        } 
+//     return _list
+// }
+
+
+// console.dir(_html)
+// let styleRe = /(?<=style([^>]*)>)([^<]*)(?=<\/style)/gms
+// let cssSource =_html.match(styleRe)
+// console.dir(cssSource)
+// _list = []
+// for (i in cssSource){
+//     debrisList = cssSource[i].split('}')
+//     for(j in debrisList){
+//        _str =  debrisList[j] + "}"
+//        class_re = /.([A-Za-z0-9]+)([\s]*){(.+?)}/mgs
+//         if(class_re.test(_str)){ //判断是否为合法的class
+//             try {
+//                 annotation = false
+//                 if(_str.indexOf("/*") > -1)annotation = true;
+//                 source = _str.match(/\.[^\{\"=]+\{[^\}]+\}/gms)[0]
+//                 let clsnameRe =  /\.([^\{\s>]*)/
+//                 let name =  source.match(clsnameRe)[1]
+//                 obj = {
+//                     "source":source,
+//                     "annotation":annotation,
+//                     "class":name
+//                 }
+//                 _list.push(obj)
+//             } catch (error) {
+//                 console.log(error)
+//             }
+//        } 
+//     }
+// }
+
+// console.dir(_list)
+
+// _str ="sadas"
+// re = new RegExp(`(["\\s]+)${_str}(["\\s]+)`,"smg")
+// console.dir(re)
+
+// console.dir(re.test('class="mybody",class="sadas2"'))
+// _html = `<style>
+//     /*  .sadasa{
+//         color: #000;
+//     } */ 
+// </style>`
+
+// let _str = `.sadasa{
+//         color: #000;
+//     }`
+
+// // _str = ".sadasa{          color: #000;        }"
+// let re = new RegExp(`\\/\\*([\\s]*)${_str}([\\s]*)\\*\/`,"smg")
+// console.dir(re.source)
+// nn = _html.match(re)[0]
+// newStr = nn.replace("/*","")
+// newStr = newStr.replace("*/","")
+// console.dir(newStr)
+
+// console.dir(nn)
+
+</script>
+</html>
+
+
+<style>
+/* .asdas{
+    margin: 0;
+} */
+</style>
