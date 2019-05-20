@@ -6,7 +6,7 @@
  */
 function ExtractClsAll(_html){
 	_html = scriptPop(_html)
-	let re = /class="([a-z|A-Z|0-9|\s|_]+)"/gms
+	let re = /class="([^'|^"]+)"/gms
 	return _html.match(re)
 }
 
@@ -56,18 +56,23 @@ function Extractcss(_html){
 					let name,_type;
 					let annotation = false
 					if(_str.indexOf("/*") > -1)annotation = true;  //判断是否已被注释
-					let source = _str.match(/([\.|#]+)([^\{]+)\{([^\}]*)}/)[0]
+					var source = _str.match(/([\.|#]+)([^\{]+)\{([^\}]*)}/)
+					if(source == null){continue}  // 不是id 和class 的直接跳过
+					let sourceStr = source[0]   //类型问题需要转换
 					let id_re = /#([a-z|A-Z|0-9|_]+){/
-					if(id_re.test(source)){
-						name =  source.match(id_re)[1]
+					if(id_re.test(sourceStr)){
+						name =  sourceStr.match(id_re)[1] //获取名称
 						_type = "id"
 					}else{
 						let clsnameRe =  /\.([^\{\s>]*)/
-						name =  source.match(clsnameRe)[1]
+						name =  sourceStr.match(clsnameRe)[1]
+						if(name.indexOf(":") > -1){
+							name = name.split(":")[0]
+						}
 						_type ="class"
 					}
 					let obj = {
-						"source":source,
+						"source":sourceStr,
 						"annotation":annotation,
 						"name":name,
 						"type":_type
@@ -80,6 +85,21 @@ function Extractcss(_html){
 		}
 	}
 	return _list
+}
+
+
+/**
+ * @method 将字符串进行正则转义，用于匹配
+ * @param {*} _str  string 类型，需转义的字符串
+ * @returns  string  类型，转义后的字符串
+ */
+function escapeReStr(_str){
+	let _escapeChars = '{}.+?*[]^|$()\\'
+	let _newStr = ''
+	for(let i in _str){
+		_escapeChars.indexOf(_str[i]) > -1 ? _newStr = _newStr + '\\' + _str[i]: _newStr = _newStr  + _str[i]
+	}
+	return _newStr
 }
 
 /**
@@ -128,12 +148,16 @@ function tidyCss(_html,cssList){
 			if(!cssList[i].isUse && !cssList[i].annotation  ){
 				_html = _html.replace(cssList[i].source,`/* ${cssList[i].source} */`)
 			}else if(cssList[i].isUse && cssList[i].annotation){
-				let _str = cssList[i].source
-				let re = new RegExp(`\\/\\*([\\s]*)${_str}([\\s]*)\\*\/`,"smg")
-				let source_str = _html.match(re)[0]
-				let new_str = source_str.replace("/*","")
-				new_str = new_str.replace("*/","")
-				_html = _html.replace(source_str,new_str);
+				let _str = escapeReStr(cssList[i].source) 
+				try {
+					let re = new RegExp(`\\/\\*([\\s]*)${_str}([\\s]*)\\*\/`,"smg")
+					let source_str = _html.match(re)[0]
+					let new_str = source_str.replace("/*","")
+					new_str = new_str.replace("*/","")
+					_html = _html.replace(source_str,new_str);
+				} catch (error) {
+					console.dir(error)
+				}
 			}
 		}else if(cssList[i].type == "id"){
 			if(!cssList[i].isUse && !cssList[i].annotation  ){ //没有使用，且没有注释

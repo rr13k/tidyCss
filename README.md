@@ -1,5 +1,5 @@
 # VueCssTidy README
-
+[中文文档](asd)
 this is tidy css,It will help you identify invalid CSS files in a vue single file, make sure it contains the scoped tag.
 It is smart and efficient, but can also be used in a separate HTML file, containing too much may have wrong judgment,
 In the latest version, it can even be restored to enable CSS
@@ -28,22 +28,30 @@ Removing script interference from scripts!
 add id of css support！
 add right-click menu and shortcuts, you can use [ctrl + shift + t] tidy your css。   
 
+
+### 0.1.0
+Fixed a matching problem where matched characters contained special characters.
+Fixed an exception match termination issue.
+
+### 0.08 
+add of empty css The support of!
+example:
+    .nihao{}
+
+### 0.07
+Removing script interference from scripts!
+
+
+### 0.0.6
+add id of css support！
+
 ### 0.0.1
 
 base method
 Add right-click menu
 shortcuts
 
-### 0.0.6
-add id of css support！
 
-### 0.07
-Removing script interference from scripts!
-
-### 0.08 
-add of empty css The support of!
-example:
-    .nihao{}
 
 -----------------------------------------------------------------------------------------------------------
 
