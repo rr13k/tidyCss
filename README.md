@@ -1,5 +1,7 @@
 # VueCssTidy README
-[中文文档](asd)
+[中文文档](https://github.com/zhouyuantest/tidyCss/tree/master/zh)
+
+
 this is tidy css,It will help you identify invalid CSS files in a vue single file, make sure it contains the scoped tag.
 It is smart and efficient, but can also be used in a separate HTML file, containing too much may have wrong judgment,
 In the latest version, it can even be restored to enable CSS

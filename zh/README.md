@@ -7,7 +7,10 @@ tidy css，它将帮助您在一个vue文件中识别无效的css文件，确保
 
 
 [传送门](https://marketplace.visualstudio.com/items?itemName=renran.VueCssTidy)
+
 如何得到它:
+    
+![example](https://raw.githubusercontent.com/zhouyuantest/tidyCss/master/images/vscode.png)
 
 
 
