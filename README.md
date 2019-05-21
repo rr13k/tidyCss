@@ -7,6 +7,15 @@ It is smart and efficient, but can also be used in a separate HTML file, contain
 In the latest version, it can even be restored to enable CSS
 You can try to expand it. Good luck!
 
+
+[taxi](https://marketplace.visualstudio.com/items?itemName=renran.VueCssTidy)
+
+
+How to get it:
+
+![example](https://raw.githubusercontent.com/zhouyuantest/tidyCss/master/images/vscode.png)
+
+
 ## Features
 
 This is an example,Make sure you need it
